@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+</head>
+<style>
+  /* Coded with love by Mutiullah Samim */
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url('https://images.pexels.com/photos/5088017/pexels-photo-5088017.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1260');
+  }
+
+  .user_card {
+    height: 400px;
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #426d89;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+
+  }
+
+  .brand_logo_container {
+    position: absolute;
+    height: 170px;
+    width: 170px;
+    top: -75px;
+    border-radius: 50%;
+    background: #60a3bc;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 4px solid #153d57;
+  }
+
+  .form_container {
+    margin-top: 100px;
+  }
+
+  .login_btn {
+    width: 100%;
+    background: #153d57 !important;
+    color: white !important;
+  }
+
+  .login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+  }
+
+  .login_container {
+    padding: 0 2rem;
+  }
+
+  .input-group-text {
+    background: #153d57 !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+  }
+
+  .input_user,
+  .input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+  }
+
+  .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #c0392b !important;
+  }
+
+  .links a {
+    color: black;
+  }
+</style>
+
+<body>
+
+  <div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+      <!-- Login Card -->
+      <div class="user_card loginCard">
+        <div class="d-flex justify-content-center">
+          <div class="brand_logo_container">
+            <img src="https://image.flaticon.com/icons/png/512/1969/1969487.png" class="brand_logo" alt="Logo">
+          </div>
+        </div>
+        <div class="d-flex justify-content-center form_container">
+          <form id="login-form">
+            <div class="input-group mb-3">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input id="userRegister" type="text" name="" class="form-control input_user" value=""
+                placeholder="usuário" required>
+            </div>
+            <div class="input-group mb-2">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input id="passwordRegister" type="password" name="" class="form-control input_pass" value=""
+                placeholder="senha" required>
+            </div>
+            <div class="d-flex justify-content-center mt-3 login_container">
+              <button id="login_btn" type="button" name="button" class="btn login_btn">Login</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="mt-4">
+          <div class="d-flex justify-content-center links">
+            Não tem uma conta? <a href="#" class="ml-2 showRegister">Cadastrar-se</a>
+          </div>
+        </div>
+      </div>
+      <!-- Register Card -->
+      <div class="user_card registerCard">
+        <div class="d-flex justify-content-center">
+          <div class="brand_logo_container">
+            <img src="https://image.flaticon.com/icons/png/512/1969/1969487.png" class="brand_logo" alt="Logo">
+          </div>
+        </div>
+        <div class="d-flex justify-content-center form_container">
+          <form id="signup-form">
+            <div class="input-group mb-3">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input id="userLogin" type="text" name="" class="form-control input_user" value="" placeholder="usuário"
+                required>
+            </div>
+            <div class="input-group mb-2">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input id="passwordLogin" type="password" name="" class="form-control input_pass" value=""
+                placeholder="senha" required>
+            </div>
+            <div class="input-group my-3">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+              </div>
+              <input type="email" name="" class="form-control input_user" value="" placeholder="Email" required>
+            </div>
+            <div class="d-flex justify-content-center mt-3 login_container">
+              <button id="signup_btn" type="button" name="button" class="btn login_btn">Cadastrar</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="mt-4">
+          <div class="d-flex justify-content-center links">
+            <a href="#" class="ml-2 showLogin">Fazer Login</a>
+          </div>
+        </div>
+      </div><!-- Close Register Card -->
+    </div>
+  </div>
+
+  <script>
+    const loginCard = document.querySelector('.loginCard')
+    const registerCard = document.querySelector('.registerCard')
+
+    registerCard.style.display = 'none'
+
+    document.querySelector('.showLogin').addEventListener('click', showLogin);
+    document.querySelector('.showRegister').addEventListener('click', showRegister);
+
+    function showLogin() {
+      loginCard.style.display = 'block'
+      registerCard.style.display = 'none'
+    }
+
+    function showRegister() {
+      loginCard.style.display = 'none'
+      registerCard.style.display = 'block'
+    }
+
+
+    $(document).ready(function () {
+      $("#signup_btn").click(function () {
+        var nm1 = $("#userLogin").val();
+        var ps1 = $("#passwordLogin").val();
+        localStorage.setItem("n1", nm1);
+        localStorage.setItem("p1", ps1);
+      });
+
+      $("#login_btn").click(function () {
+        var enteredName = $("#userRegister").val();
+        var enteredPass = $("#passwordRegister").val();
+
+        var storedName = localStorage.getItem("n1");
+        var storedPass = localStorage.getItem("p1");
+
+        if (enteredName == storedName && enteredPass == storedPass) {
+          alert("You are logged in!");
+          window.location.href = "http://localhost:8001/usuarios";
+        }
+        else {
+          alert("Username and Password do not match!");
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
