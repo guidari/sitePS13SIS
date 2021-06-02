@@ -17,7 +17,7 @@
 	}
 
 	.presentation {
-		background-color: #6c63ff;
+		background-color: #8257e5;
 	}
 
 	.presentation .textPresentation {
@@ -32,6 +32,16 @@
 	.cadastro {
 		display: flex;
 		flex-direction: column;
+	}
+
+	.btn-primary {
+		background-color: #8257e5;
+		border-color: #8257e5;
+	}
+
+	.btn-primary:hover {
+		background-color: #6c63ff;
+		border-color: #6c63ff;
 	}
 </style>
 
@@ -76,8 +86,7 @@
 							</div>
 							<div class="form-group mb-3">
 								<label for="acompanhate">Materia</label>
-								<input id="materia" type="text" class="form-control mt-3" placeholder="quantidade do materia"
-									th:field="*{materia}">
+								<input id="materia" type="text" class="form-control mt-3" placeholder="Materia" th:field="*{materia}">
 							</div>
 						</div>
 						<button id="cadastrarProfissional" type="submit" class="btn btn-primary">Cadastrar Profissional</button>

@@ -9,6 +9,18 @@
 	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet" />
 </head>
 
+<style>
+	.btn-primary {
+		background-color: #8257e5;
+		border-color: #8257e5;
+	}
+
+	.btn-primary:hover {
+		background-color: #6c63ff;
+		border-color: #6c63ff;
+	}
+</style>
+
 <body>
 	<div class="container">
 		<div class="jumbotron">
@@ -35,6 +47,7 @@
 					</div>
 				</div>
 				<button type="submit" class="btn btn-primary">Atualizar</button>
+				<button onclick='window.history.back();' type="submit" class="btn btn-primary">Voltar</button>
 			</form>
 		</div>
 	</div>
