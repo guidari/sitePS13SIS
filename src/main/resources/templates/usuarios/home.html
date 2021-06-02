@@ -17,13 +17,14 @@
   html {
     margin: 0;
     padding: 0;
-    height: 100%;
-    background-image: url('https://images.pexels.com/photos/5088017/pexels-photo-5088017.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1260');
+    /* height: 100%; */
+    /* background-image: url('https://images.pexels.com/photos/5088017/pexels-photo-5088017.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1260'); */
+    background-color: #121214;
   }
 
   .user_card {
     height: 400px;
-    width: 350px;
+    width: 400px;
     margin-top: auto;
     margin-bottom: auto;
     background: #2d2d2e;
@@ -111,93 +112,114 @@
     width: 80%;
     background-color: #424244;
   }
+
+  .colunas {
+    margin-top: 250px;
+  }
+
+  .colunas h1 {
+    color: white;
+    font-size: 54px;
+    font-weight: bold;
+  }
 </style>
 
 <body>
 
   <div class="container h-100">
-    <div class="d-flex justify-content-center h-100">
-      <!-- Login Card -->
-      <div class="user_card loginCard">
-        <div class="d-flex justify-content-center">
-          <div class="brand_logo_container">
-            <img src="https://image.flaticon.com/icons/png/512/1969/1969487.png" class="brand_logo" alt="Logo">
-          </div>
-        </div>
-        <div class="d-flex justify-content-center form_container">
-          <form id="login-form">
-            <div class="input-group mb-3">
-              <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
-              </div>
-              <input id="userRegister" type="text" name="" class="form-control input_user" value=""
-                placeholder="usuário" required>
-            </div>
-            <div class="input-group mb-2">
-              <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
-              </div>
-              <input id="passwordRegister" type="password" name="" class="form-control input_pass" value=""
-                placeholder="senha" required>
-            </div>
-            <div class="d-flex justify-content-center mt-3 login_container">
-              <button id="login_btn" type="button" name="button" class="btn login_btn">Login</button>
-            </div>
-          </form>
-        </div>
 
-        <div class="d-flex justify-content-center">
-          <span class="borderSpan"></span>
-        </div>
 
-        <div class="mt-4">
-          <div class="d-flex justify-content-center links">
-            <span>Não tem uma conta?</span> <a href="#" class="ml-2 showRegister">Registre-se</a>
-          </div>
-        </div>
-      </div>
-      <!-- Register Card -->
-      <div class="user_card registerCard">
-        <div class="d-flex justify-content-center">
-          <div class="brand_logo_container">
-            <img src="https://image.flaticon.com/icons/png/512/1969/1969487.png" class="brand_logo" alt="Logo">
-          </div>
-        </div>
-        <div class="d-flex justify-content-center form_container">
-          <form id="signup-form">
-            <div class="input-group mb-3">
-              <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
+    <div class="row">
+      <div class="col-md-6 col-sm-12 colunas">
+        <img src="http://owltech.net.br/images/LogoPrincipal.png" alt="" width="200px" class="mb-5">
+        <h1 class="mt-5">Faça seu login <br>
+          na plataforma</h1>
+      </div><!-- FECHA COLUNA ESQUERDA -->
+      <div class="col-md-6 col-sm-12 colunas">
+        <div class="d-flex justify-content-center h-100">
+          <!-- Login Card -->
+          <div class="user_card loginCard">
+            <div class="d-flex justify-content-center">
+              <div class="brand_logo_container">
+                <img src="https://image.flaticon.com/icons/png/512/1969/1969487.png" class="brand_logo" alt="Logo">
               </div>
-              <input id="userLogin" type="text" name="" class="form-control input_user" value="" placeholder="usuário"
-                required>
             </div>
-            <div class="input-group mb-2">
-              <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
-              </div>
-              <input id="passwordLogin" type="password" name="" class="form-control input_pass" value=""
-                placeholder="senha" required>
+            <div class="d-flex justify-content-center form_container">
+              <form id="login-form">
+                <div class="input-group mb-3">
+                  <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input id="userRegister" type="text" name="" class="form-control input_user" value=""
+                    placeholder="usuário" required>
+                </div>
+                <div class="input-group mb-2">
+                  <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                  </div>
+                  <input id="passwordRegister" type="password" name="" class="form-control input_pass" value=""
+                    placeholder="senha" required>
+                </div>
+                <div class="d-flex justify-content-center mt-3 login_container">
+                  <button id="login_btn" type="button" name="button" class="btn login_btn">Login</button>
+                </div>
+              </form>
             </div>
-            <div class="input-group my-3">
-              <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-              </div>
-              <input type="email" name="" class="form-control input_user" value="" placeholder="Email" required>
-            </div>
-            <div class="d-flex justify-content-center mt-3 login_container">
-              <button id="signup_btn" type="button" name="button" class="btn login_btn">Registrar-se</button>
-            </div>
-          </form>
-        </div>
 
-        <div class="mt-4">
-          <div class="d-flex justify-content-center links">
-            <a href="#" class="ml-2 showLogin">Fazer Login</a>
+            <div class="d-flex justify-content-center">
+              <span class="borderSpan"></span>
+            </div>
+
+            <div class="mt-4">
+              <div class="d-flex justify-content-center links">
+                <span>Não tem uma conta?</span> <a href="#" class="ml-2 showRegister">Registre-se</a>
+              </div>
+            </div>
           </div>
+          <!-- Register Card -->
+          <div class="user_card registerCard">
+            <div class="d-flex justify-content-center">
+              <div class="brand_logo_container">
+                <img src="https://image.flaticon.com/icons/png/512/1969/1969487.png" class="brand_logo" alt="Logo">
+              </div>
+            </div>
+            <div class="d-flex justify-content-center form_container">
+              <form id="signup-form">
+                <div class="input-group mb-3">
+                  <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input id="userLogin" type="text" name="" class="form-control input_user" value=""
+                    placeholder="usuário" required>
+                </div>
+                <div class="input-group mb-2">
+                  <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                  </div>
+                  <input id="passwordLogin" type="password" name="" class="form-control input_pass" value=""
+                    placeholder="senha" required>
+                </div>
+                <div class="input-group my-3">
+                  <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                  </div>
+                  <input type="email" name="" class="form-control input_user" value="" placeholder="Email" required>
+                </div>
+                <div class="d-flex justify-content-center mt-3 login_container">
+                  <button id="signup_btn" type="button" name="button" class="btn login_btn">Registrar-se</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="mt-4">
+              <div class="d-flex justify-content-center links">
+                <a href="#" class="ml-2 showLogin">Fazer Login</a>
+              </div>
+            </div>
+          </div><!-- Close Register Card -->
         </div>
-      </div><!-- Close Register Card -->
-    </div>
+      </div><!-- FECHA COLUNA DIREITA -->
+    </div><!-- FECHA ROW -->
   </div>
 
   <script>

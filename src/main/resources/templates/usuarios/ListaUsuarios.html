@@ -16,17 +16,25 @@
 		overflow-x: hidden;
 	}
 
+	p {
+		color: white !important;
+	}
+
 	.presentation {
 		background-color: #8257e5;
 	}
 
 	.presentation .textPresentation {
-		padding: 15%;
+		padding: 10% 25%;
 	}
 
 	.presentation .textPresentation p {
 		margin-top: 2rem;
 		font-size: 24px;
+	}
+
+	.presentation .textPresentation h1 {
+		font-weight: bold;
 	}
 
 	.cadastro {
@@ -46,6 +54,12 @@
 </style>
 
 <body>
+
+	<nav class="navbar navbar-light bg-dark">
+		<a class="navbar-brand" href="/usuarios">
+			<img src="http://owltech.net.br/images/LogoPrincipal.png" width="150" class="d-inline-block align-top" alt="">
+		</a>
+	</nav>
 
 	<div class="row">
 		<div class="col-md-6 col-sm-12 presentation">
@@ -69,7 +83,7 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-4 col-sm-12 cadastro">
+			<div class="col-md-3 col-sm-12 cadastro">
 				<div class="card">
 					<form class="card-body" method="POST" th:object="${usuario}" th:action="@{/usuarios}">
 						<div class="row">
@@ -86,14 +100,14 @@
 							</div>
 							<div class="form-group mb-3">
 								<label for="acompanhate">Materia</label>
-								<input id="materia" type="text" class="form-control mt-3" placeholder="Materia" th:field="*{materia}">
+								<input id="materia" type="text" class="form-control mt-3" placeholder="Matéria" th:field="*{materia}">
 							</div>
 						</div>
 						<button id="cadastrarProfissional" type="submit" class="btn btn-primary">Cadastrar Profissional</button>
 					</form>
 				</div>
 			</div>
-			<div class="col-md-8 col-sm-12">
+			<div class="col-md-9 col-sm-12">
 				<table class="table table-striped table-hover table-bordered">
 					<thead>
 						<tr>
