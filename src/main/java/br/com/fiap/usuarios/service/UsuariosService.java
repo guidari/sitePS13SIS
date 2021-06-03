@@ -7,11 +7,11 @@ import br.com.fiap.usuarios.dto.UsuariosDto;
 public interface UsuariosService {
 
 	UsuariosDto salvarUsuarios(UsuariosDto usuarioDto);
-	
+
 	List<UsuariosDto> listarUsuarios();
-	
+
 	UsuariosDto editarUsuarios(Long id);
-	
+
 	void excluirUsuarios(Long id);
-	
+
 }

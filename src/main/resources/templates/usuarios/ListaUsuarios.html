@@ -16,6 +16,10 @@
 		overflow-x: hidden;
 	}
 
+	a {
+		text-decoration: none;
+	}
+
 	p {
 		color: white !important;
 	}
@@ -55,9 +59,12 @@
 
 <body>
 
-	<nav class="navbar navbar-light bg-dark">
+	<nav class="navbar navbar-light bg-dark px-5">
 		<a class="navbar-brand" href="/usuarios">
 			<img src="http://owltech.net.br/images/LogoPrincipal.png" width="150" class="d-inline-block align-top" alt="">
+		</a>
+		<a href="/">
+			<p>Sign out</p>
 		</a>
 	</nav>
 
@@ -114,14 +121,14 @@
 							<th scope="col">#</th>
 							<th scope="col">Nome</th>
 							<th scope="col">E-mail</th>
-							<th scope="col">Materia</th>
+							<th scope="col">Matéria</th>
 							<th width="120px" class="text-center" scope="col">Ação</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="usuario : ${usuarios}">
 							<th th:text="${usuario.id}" scope="row"></th>
-							<td th:text="${usuario.nome}"></td>
+							<td th:text="${usuario.nome}" th:href="@{/usuarios/{id}(id = ${usuario.id})}"></td>
 							<td th:text="${usuario.email}"></td>
 							<td th:text="${usuario.materia}"></td>
 							<td class="text-center">
