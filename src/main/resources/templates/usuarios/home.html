@@ -249,7 +249,7 @@
         localStorage.setItem("n1", nm1);
         localStorage.setItem("p1", ps1);
         alert("Cadastrado com sucesso")
-        window.location.href = "http://localhost:8001/usuarios";
+        window.location.href = "/usuarios";
       });
 
       $("#login_btn").click(function () {
@@ -260,7 +260,7 @@
         var storedPass = localStorage.getItem("p1");
 
         if (enteredName == storedName && enteredPass == storedPass) {
-          window.location.href = "http://localhost:8001/usuarios";
+          window.location.href = "/usuarios";
         }
         else {
           alert("Usuário e senha estão incorretos");
