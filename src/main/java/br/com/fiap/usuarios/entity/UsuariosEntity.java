@@ -15,10 +15,9 @@ public class UsuariosEntity {
 	private Long id;
 
 	private String nome;
-
 	private String email;
-
 	private String materia;
+	private String imagem;
 
 	public Long getId() {
 		return id;
@@ -50,6 +49,14 @@ public class UsuariosEntity {
 
 	public void setMateria(String materia) {
 		this.materia = materia;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
 }

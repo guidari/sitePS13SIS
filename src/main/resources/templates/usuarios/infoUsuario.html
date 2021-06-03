@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title>Editar Informações</title>
+	<title>Informações do professor</title>
 	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
 	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet" />
 </head>
@@ -32,10 +32,10 @@
 	</nav>
 	<div class="container">
 		<div class="jumbotron">
-			<h1 class="display-4">Editar Informações</h1>
+			<h1 class="display-4">Informações do professor</h1>
 		</div>
 		<div class="card">
-			<form class="card-body" method="POST" th:object="${usuario}" th:action="@{/usuarios}">
+			<div class="card-body" th:object="${usuario}" th:action="@{/usuarios}">
 				<div class="row">
 					<div>
 						<input type="hidden" class="form-control mt-3" placeholder="Nome do usuario" th:field="*{id}">
@@ -50,27 +50,13 @@
 						<input type="email" class="form-control mt-3" placeholder="E-mail do usuario" th:field="*{email}">
 					</div>
 					<div class="form-group mb-3 col-sm">
-						<label for="materia">Matéria</label>
+						<label for="acompanhate">Materia</label>
 						<input type="text" class="form-control mt-3" placeholder="Matéria" th:field="*{materia}">
 					</div>
-					<div class="form-group mb-3 col-sm">
-						<label for="imagem">Imagem</label>
-						<input type="text" class="form-control mt-3" placeholder="Foto de perfil" th:field="*{imagem}">
-					</div>
 				</div>
-				<div class="row">
-					<div class="form-group mb-3 col-sm">
-						<label for="custo">Custo da aula</label>
-						<input type="text" class="form-control mt-3" placeholder="Custo da aula">
-					</div>
-					<div class="form-group mb-3 col-sm">
-						<label for="biografia">Biografia</label>
-						<textarea type="text" class="form-control mt-3" placeholder="Sua Biografia"></textarea>
-					</div>
-				</div>
-				<button type="submit" class="btn btn-primary">Atualizar</button>
+				<button class="btn btn-primary">Entrar em contato</button>
 				<button onclick='window.history.back();' type="submit" class="btn btn-primary">Voltar</button>
-			</form>
+			</div>
 		</div>
 	</div>
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>

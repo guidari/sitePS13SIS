@@ -16,6 +16,9 @@ public class UsuariosDto {
 
 	@NotBlank
 	private String materia;
+	
+	@NotBlank
+	private String imagem;
 
 	public Long getId() {
 		return id;
@@ -48,6 +51,14 @@ public class UsuariosDto {
 	public void setMateria(String materia) {
 		this.materia = materia;
 	}
+	
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
 
 	public UsuariosEntity toEntity() {
 		UsuariosEntity entity = new UsuariosEntity();
@@ -55,6 +66,7 @@ public class UsuariosDto {
 		entity.setEmail(this.email);
 		entity.setNome(this.nome);
 		entity.setMateria(this.materia);
+		entity.setImagem(this.imagem);
 		return entity;
 	}
 

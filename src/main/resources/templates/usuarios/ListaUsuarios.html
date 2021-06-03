@@ -106,8 +106,12 @@
 									th:field="*{email}">
 							</div>
 							<div class="form-group mb-3">
-								<label for="acompanhate">Materia</label>
+								<label for="materia">Materia</label>
 								<input id="materia" type="text" class="form-control mt-3" placeholder="Matéria" th:field="*{materia}">
+							</div>
+							<div class="form-group mb-3">
+								<label for="imagem">Foto de perfil</label>
+								<input id="imagem" type="text" class="form-control mt-3" placeholder="Imagem" th:field="*{imagem}">
 							</div>
 						</div>
 						<button id="cadastrarProfissional" type="submit" class="btn btn-primary">Cadastrar Profissional</button>
@@ -122,16 +126,18 @@
 							<th scope="col">Nome</th>
 							<th scope="col">E-mail</th>
 							<th scope="col">Matéria</th>
-							<th width="120px" class="text-center" scope="col">Ação</th>
+							<th width="150px" class="text-center" scope="col">Ação</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="usuario : ${usuarios}">
 							<th th:text="${usuario.id}" scope="row"></th>
-							<td th:text="${usuario.nome}" th:href="@{/usuarios/{id}(id = ${usuario.id})}"></td>
+							<td th:text="${usuario.nome}"></td>
 							<td th:text="${usuario.email}"></td>
 							<td th:text="${usuario.materia}"></td>
 							<td class="text-center">
+							<a th:href="@{/infoUsuario/{id}(id = ${usuario.id})}" class="btn btn-warning"><i
+										class="fas fa-user"></i></a>
 								<a th:href="@{/usuarios/{id}(id = ${usuario.id})}" class="btn btn-primary"><i
 										class="fas fa-pen"></i></a>
 								<a th:href="@{/usuarios/excluir/{id}(id = ${usuario.id})}" class="btn btn btn-danger"><i

@@ -11,6 +11,8 @@ public interface UsuariosService {
 	List<UsuariosDto> listarUsuarios();
 
 	UsuariosDto editarUsuarios(Long id);
+	
+	UsuariosDto visualizar(Long id);
 
 	void excluirUsuarios(Long id);
 

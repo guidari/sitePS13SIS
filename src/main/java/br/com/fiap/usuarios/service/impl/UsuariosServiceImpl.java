@@ -44,6 +44,15 @@ public class UsuariosServiceImpl implements UsuariosService {
 
 		return usuarioDto;
 	}
+	
+	public UsuariosDto visualizar(Long id) {
+
+		UsuariosEntity entity = repository.findById(id).get();
+
+		UsuariosDto usuarioDto = fromUsuariosEntityToUsuariosDto(entity);
+
+		return usuarioDto;
+	}
 
 	@Override
 	public void excluirUsuarios(Long id) {
@@ -56,6 +65,7 @@ public class UsuariosServiceImpl implements UsuariosService {
 		dto.setNome(entity.getNome());
 		dto.setEmail(entity.getEmail());
 		dto.setMateria(entity.getMateria());
+		dto.setImagem(entity.getImagem());
 		return dto;
 	}
 
@@ -68,6 +78,8 @@ public class UsuariosServiceImpl implements UsuariosService {
 			dto.setNome(usuariosEntity.getNome());
 			dto.setEmail(usuariosEntity.getEmail());
 			dto.setMateria(usuariosEntity.getMateria());
+			dto.setImagem(usuariosEntity.getImagem());
+
 
 			listaConvidadoDto.add(dto);
 		}

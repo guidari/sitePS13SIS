@@ -66,6 +66,19 @@ public class UsuariosController {
 
 		return view;
 	}
+	
+	@GetMapping("/infoUsuario/{id}")
+	public ModelAndView visualizar(@PathVariable Long id) {
+
+		UsuariosDto usuario = service.visualizar(id);
+
+		ModelAndView view = new ModelAndView("usuarios/infoUsuario");
+
+		view.addObject("usuario", usuario);
+
+		return view;
+	}
+
 
 	@GetMapping("/usuarios/excluir/{id}")
 	public String excluir(@PathVariable Long id) {
