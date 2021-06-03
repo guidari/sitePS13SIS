@@ -115,16 +115,14 @@
 	</nav>
 
 	<main>
-
 		<article class="teacher-item">
 
 		</article>
-
 	</main>
 
 	<div method="POST" th:object="${usuario}" th:action="@{/usuarios}">
 		<input id="nome" type="hidden" class="form-control mt-3" placeholder="Nome do usuario" th:field="*{nome}">
-		<input id="email" type="hidden" class="form-control mt-3" placeholder="E-mail do usuario" th:field="*{email}">
+		<input id="celular" type="hidden" class="form-control mt-3" placeholder="Celular do usuario" th:field="*{celular}">
 		<input id="materia" type="hidden" class="form-control mt-3" placeholder="Matéria" th:field="*{materia}">
 		<input id="imagem" type="hidden" class="form-control mt-3" placeholder="Foto de perfil" th:field="*{imagem}">
 		<input id="custo" type="hidden" class="form-control mt-3" placeholder="Custo da aula" th:field="*{custo}">
@@ -134,14 +132,13 @@
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	<script>
 		const nome = document.querySelector('#nome').value;
-		const email = document.querySelector('#email').value;
+		const celular = document.querySelector('#celular').value;
 		const materia = document.querySelector('#materia').value;
 		const imagem = document.querySelector('#imagem').value;
 		const custo = document.querySelector('#custo').value;
 		const biografia = document.querySelector('#biografia').value;
 
-
-		let articleContent = `	<header>
+		let articleContent = `<header>
 				<img src="${imagem}"
 					alt="Foto de perfil">
 				<div>
@@ -152,7 +149,7 @@
 			<p>${biografia}</p>
 			<footer>
 				<p>Preço/hora <strong>${custo}</strong></p>
-				<a href="" target="_blank"><img
+				<a href="https://api.whatsapp.com/send?phone=${celular}&text=sua%20mensagem" target="_blank"><img
 						src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwLjAwMjUgMEg5Ljk5NzVDNC40ODM3NSAwIDAgNC40ODUgMCAxMEMwIDEyLjE4NzUgMC43MDUgMTQuMjE1IDEuOTAzNzUgMTUuODYxMkwwLjY1NzUgMTkuNTc2M0w0LjUwMTI1IDE4LjM0NzVDNi4wODI1IDE5LjM5NSA3Ljk2ODc1IDIwIDEwLjAwMjUgMjBDMTUuNTE2MiAyMCAyMCAxNS41MTM4IDIwIDEwQzIwIDQuNDg2MjUgMTUuNTE2MiAwIDEwLjAwMjUgMFoiIGZpbGw9IiM0Q0FGNTAiLz4KPHBhdGggZD0iTTE1LjgyMTIgMTQuMTIxMkMxNS41Nzk5IDE0LjgwMjUgMTQuNjIyNCAxNS4zNjc1IDEzLjg1ODcgMTUuNTMyNUMxMy4zMzYyIDE1LjY0MzcgMTIuNjUzNyAxNS43MzI1IDEwLjM1NjIgMTQuNzhDNy40MTc0NCAxMy41NjI1IDUuNTI0OTQgMTAuNTc2MiA1LjM3NzQ0IDEwLjM4MjVDNS4yMzYxOSAxMC4xODg3IDQuMTg5OTQgOC44MDEyMyA0LjE4OTk0IDcuMzY2MjNDNC4xODk5NCA1LjkzMTIzIDQuOTE4NjkgNS4yMzI0OCA1LjIxMjQ0IDQuOTMyNDhDNS40NTM2OSA0LjY4NjIzIDUuODUyNDQgNC41NzM3MyA2LjIzNDk0IDQuNTczNzNDNi4zNTg2OSA0LjU3MzczIDYuNDY5OTQgNC41Nzk5OCA2LjU2OTk0IDQuNTg0OThDNi44NjM2OSA0LjU5NzQ4IDcuMDExMTkgNC42MTQ5OCA3LjIwNDk0IDUuMDc4NzNDNy40NDYxOSA1LjY1OTk4IDguMDMzNjkgNy4wOTQ5OCA4LjEwMzY5IDcuMjQyNDhDOC4xNzQ5NCA3LjM4OTk4IDguMjQ2MTkgNy41ODk5OCA4LjE0NjE5IDcuNzgzNzNDOC4wNTI0NCA3Ljk4MzczIDcuOTY5OTQgOC4wNzI0OCA3LjgyMjQ0IDguMjQyNDhDNy42NzQ5NCA4LjQxMjQ4IDcuNTM0OTQgOC41NDI0OCA3LjM4NzQ0IDguNzI0OThDNy4yNTI0NCA4Ljg4MzczIDcuMDk5OTQgOS4wNTM3MyA3LjI2OTk0IDkuMzQ3NDhDNy40Mzk5NCA5LjYzNDk4IDguMDI3NDQgMTAuNTkzNyA4Ljg5MjQ0IDExLjM2MzdDMTAuMDA4NyAxMi4zNTc1IDEwLjkxMzcgMTIuNjc1IDExLjIzNzQgMTIuODFDMTEuNDc4NyAxMi45MSAxMS43NjYyIDEyLjg4NjIgMTEuOTQyNCAxMi42OTg3QzEyLjE2NjIgMTIuNDU3NSAxMi40NDI0IDEyLjA1NzUgMTIuNzIzNyAxMS42NjM3QzEyLjkyMzcgMTEuMzgxMiAxMy4xNzYyIDExLjM0NjIgMTMuNDQxMiAxMS40NDYyQzEzLjcxMTIgMTEuNTQgMTUuMTM5OSAxMi4yNDYyIDE1LjQzMzcgMTIuMzkyNUMxNS43Mjc0IDEyLjU0IDE1LjkyMTIgMTIuNjEgMTUuOTkyNCAxMi43MzM3QzE2LjA2MjQgMTIuODU3NSAxNi4wNjI0IDEzLjQzODcgMTUuODIxMiAxNC4xMjEyWiIgZmlsbD0iI0ZBRkFGQSIvPgo8L3N2Zz4K"
 						alt="WhatsApp">Entrar em contato</a>
 			</footer>`;

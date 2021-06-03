@@ -12,7 +12,7 @@ public class UsuariosDto {
 	private String nome;
 
 	@NotBlank
-	private String email;
+	private String celular;
 
 	@NotBlank
 	private String materia;
@@ -42,12 +42,12 @@ public class UsuariosDto {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getCelular() {
+		return celular;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCelular(String celular) {
+		this.celular = celular;
 	}
 
 	public String getMateria() {
@@ -85,7 +85,7 @@ public class UsuariosDto {
 	public UsuariosEntity toEntity() {
 		UsuariosEntity entity = new UsuariosEntity();
 		entity.setId(this.id);
-		entity.setEmail(this.email);
+		entity.setCelular(this.celular);
 		entity.setNome(this.nome);
 		entity.setMateria(this.materia);
 		entity.setImagem(this.imagem);

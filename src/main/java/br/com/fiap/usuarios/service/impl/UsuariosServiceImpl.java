@@ -63,7 +63,7 @@ public class UsuariosServiceImpl implements UsuariosService {
 		UsuariosDto dto = new UsuariosDto();
 		dto.setId(entity.getId());
 		dto.setNome(entity.getNome());
-		dto.setEmail(entity.getEmail());
+		dto.setCelular(entity.getCelular());
 		dto.setMateria(entity.getMateria());
 		dto.setImagem(entity.getImagem());
 		dto.setCusto(entity.getCusto());
@@ -78,7 +78,7 @@ public class UsuariosServiceImpl implements UsuariosService {
 			UsuariosDto dto = new UsuariosDto();
 			dto.setId(usuariosEntity.getId());
 			dto.setNome(usuariosEntity.getNome());
-			dto.setEmail(usuariosEntity.getEmail());
+			dto.setCelular(usuariosEntity.getCelular());
 			dto.setMateria(usuariosEntity.getMateria());
 			dto.setImagem(usuariosEntity.getImagem());
 			dto.setCusto(usuariosEntity.getCusto());

@@ -15,7 +15,7 @@ public class UsuariosEntity {
 	private Long id;
 
 	private String nome;
-	private String email;
+	private String celular;
 	private String materia;
 	private String imagem;
 	private String custo;
@@ -37,12 +37,12 @@ public class UsuariosEntity {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getCelular() {
+		return celular;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCelular(String celular) {
+		this.celular = celular;
 	}
 
 	public String getMateria() {

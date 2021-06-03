@@ -102,12 +102,13 @@
 							</div>
 							<div class="form-group mb-3">
 								<label for="imagem">Foto de perfil</label>
-								<input id="imagem" type="text" class="form-control mt-3" placeholder="Imagem" th:field="*{imagem}">
+								<input id="imagem" type="text" class="form-control mt-3" placeholder="Insira uma URL de imagem"
+									th:field="*{imagem}">
 							</div>
 							<div class="form-group mb-3">
-								<label for="email">Email</label>
-								<input id="email" type="text" class="form-control mt-3" placeholder="E-mail do usuario"
-									th:field="*{email}">
+								<label for="celular">Celular</label>
+								<input id="celular" type="text" class="form-control mt-3" placeholder="Celular do usuário"
+									th:field="*{celular}">
 							</div>
 							<div class="form-group mb-3">
 								<label for="materia">Materia</label>
@@ -162,24 +163,7 @@
 	</div>
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-	<script>
 
-		createFirstUsers()
-
-		function createFirstUsers(e) {
-			// const nome = document.querySelector('#nome');
-			// const email = document.querySelector('#email');
-			// const materia = document.querySelector('#materia');
-
-			// nome.value = 'Diego';
-			// email.value = 'diego@gmail.com';
-			// materia.value = 'React';
-			// console.log('teste')
-
-			// document.querySelector("#cadastrarProfissional").click();
-			// e.preventDefault();
-		}
-	</script>
 </body>
 
 </html>
