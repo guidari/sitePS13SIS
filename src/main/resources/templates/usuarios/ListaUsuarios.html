@@ -134,7 +134,7 @@
 						<tr>
 							<th scope="col">#</th>
 							<th scope="col">Nome</th>
-							<th scope="col">E-mail</th>
+							<th scope="col">Preço/hora</th>
 							<th scope="col">Matéria</th>
 							<th width="150px" class="text-center" scope="col">Ação</th>
 						</tr>
@@ -143,7 +143,7 @@
 						<tr th:each="usuario : ${usuarios}">
 							<th th:text="${usuario.id}" scope="row"></th>
 							<td th:text="${usuario.nome}"></td>
-							<td th:text="${usuario.email}"></td>
+							<td th:text="${usuario.custo}"></td>
 							<td th:text="${usuario.materia}"></td>
 							<td class="text-center">
 								<a th:href="@{/infoUsuario/{id}(id = ${usuario.id})}" class="btn btn-warning"><i
