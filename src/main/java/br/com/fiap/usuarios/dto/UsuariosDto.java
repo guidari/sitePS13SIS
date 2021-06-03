@@ -16,9 +16,15 @@ public class UsuariosDto {
 
 	@NotBlank
 	private String materia;
-	
+
 	@NotBlank
 	private String imagem;
+
+	@NotBlank
+	private String custo;
+
+	@NotBlank
+	private String biografia;
 
 	public Long getId() {
 		return id;
@@ -51,13 +57,29 @@ public class UsuariosDto {
 	public void setMateria(String materia) {
 		this.materia = materia;
 	}
-	
+
 	public String getImagem() {
 		return imagem;
 	}
 
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
+	}
+
+	public String getCusto() {
+		return custo;
+	}
+
+	public void setCusto(String custo) {
+		this.custo = custo;
+	}
+
+	public String getBiografia() {
+		return biografia;
+	}
+
+	public void setBiografia(String biografia) {
+		this.biografia = biografia;
 	}
 
 	public UsuariosEntity toEntity() {
@@ -67,6 +89,8 @@ public class UsuariosDto {
 		entity.setNome(this.nome);
 		entity.setMateria(this.materia);
 		entity.setImagem(this.imagem);
+		entity.setCusto(this.custo);
+		entity.setBiografia(this.biografia);
 		return entity;
 	}
 

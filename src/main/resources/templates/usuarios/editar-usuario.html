@@ -53,19 +53,20 @@
 						<label for="materia">Matéria</label>
 						<input type="text" class="form-control mt-3" placeholder="Matéria" th:field="*{materia}">
 					</div>
+				</div>
+				<div class="row">
 					<div class="form-group mb-3 col-sm">
 						<label for="imagem">Imagem</label>
 						<input type="text" class="form-control mt-3" placeholder="Foto de perfil" th:field="*{imagem}">
 					</div>
-				</div>
-				<div class="row">
 					<div class="form-group mb-3 col-sm">
 						<label for="custo">Custo da aula</label>
-						<input type="text" class="form-control mt-3" placeholder="Custo da aula">
+						<input type="text" class="form-control mt-3" placeholder="Custo da aula" th:field="*{custo}">
 					</div>
 					<div class="form-group mb-3 col-sm">
 						<label for="biografia">Biografia</label>
-						<textarea type="text" class="form-control mt-3" placeholder="Sua Biografia"></textarea>
+						<textarea type="text" class="form-control mt-3" placeholder="Sua Biografia"
+							th:field="*{biografia}"></textarea>
 					</div>
 				</div>
 				<button type="submit" class="btn btn-primary">Atualizar</button>

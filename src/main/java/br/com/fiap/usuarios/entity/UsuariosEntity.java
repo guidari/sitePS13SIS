@@ -18,6 +18,8 @@ public class UsuariosEntity {
 	private String email;
 	private String materia;
 	private String imagem;
+	private String custo;
+	private String biografia;
 
 	public Long getId() {
 		return id;
@@ -57,6 +59,22 @@ public class UsuariosEntity {
 
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
+	}
+
+	public String getCusto() {
+		return custo;
+	}
+
+	public void setCusto(String custo) {
+		this.custo = custo;
+	}
+
+	public String getBiografia() {
+		return biografia;
+	}
+
+	public void setBiografia(String biografia) {
+		this.biografia = biografia;
 	}
 
 }
