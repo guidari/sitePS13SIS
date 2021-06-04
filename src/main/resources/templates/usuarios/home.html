@@ -190,20 +190,21 @@
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                   </div>
                   <input id="userLogin" type="text" name="" class="form-control input_user" value=""
-                    placeholder="usuário" required>
+                    placeholder="Usuário" required>
                 </div>
                 <div class="input-group mb-2">
                   <div class="input-group-append">
                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                   </div>
                   <input id="passwordLogin" type="password" name="" class="form-control input_pass" value=""
-                    placeholder="senha" required>
+                    placeholder="Senha" required>
                 </div>
                 <div class="input-group my-3">
                   <div class="input-group-append">
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                   </div>
-                  <input type="celular" name="" class="form-control input_user" value="" placeholder="Celular" required>
+                  <input id="email" type="email" name="" class="form-control input_user" value="" placeholder="Email"
+                    required>
                 </div>
                 <div class="d-flex justify-content-center mt-3 login_container">
                   <button id="signup_btn" type="button" name="button" class="btn login_btn">Registrar-se</button>
@@ -244,20 +245,28 @@
 
     $(document).ready(function () {
       $("#signup_btn").click(function () {
-        var nm1 = $("#userLogin").val();
-        var ps1 = $("#passwordLogin").val();
-        localStorage.setItem("n1", nm1);
-        localStorage.setItem("p1", ps1);
-        alert("Cadastrado com sucesso")
-        window.location.href = "/usuarios";
+        const userName = $("#userLogin").val();
+        const password = $("#passwordLogin").val();
+        const email = $("#email").val();
+
+        if (userName === '' || password === '' || email === '') {
+          alert('Preencha os campos corretamente')
+        } else {
+          localStorage.setItem("userName", userName);
+          localStorage.setItem("password", password);
+          alert("Cadastrado com sucesso")
+          window.location.href = "/usuarios";
+        }
+
+
       });
 
       $("#login_btn").click(function () {
-        var enteredName = $("#userRegister").val();
-        var enteredPass = $("#passwordRegister").val();
+        const enteredName = $("#userRegister").val();
+        const enteredPass = $("#passwordRegister").val();
 
-        var storedName = localStorage.getItem("n1");
-        var storedPass = localStorage.getItem("p1");
+        const storedName = localStorage.getItem("userName");
+        const storedPass = localStorage.getItem("password");
 
         if (enteredName == storedName && enteredPass == storedPass) {
           window.location.href = "/usuarios";
