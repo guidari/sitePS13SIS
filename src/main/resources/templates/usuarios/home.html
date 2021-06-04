@@ -12,235 +12,357 @@
     integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 </head>
 <style>
-  /* Coded with love by Mutiullah Samim */
-  body,
-  html {
+  /*===== GOOGLE FONTS =====*/
+  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+  /*===== VARIABLES CSS =====*/
+  :root {
+    /*===== Colores =====*/
+    --first-color: #6c63ff;
+    --first-color-dark: #23004D;
+    --first-color-light: #A49EAC;
+    --first-color-lighten: #F2F2F2;
+
+    /*===== Font and typography =====*/
+    --body-font: 'Open Sans', sans-serif;
+    --h1-font-size: 1.5rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    :root {
+      --normal-font-size: 1rem;
+      --small-font-size: .875rem;
+    }
+  }
+
+  /*===== BASE =====*/
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  body {
     margin: 0;
     padding: 0;
-    /* height: 100%; */
-    /* background-image: url('https://images.pexels.com/photos/5088017/pexels-photo-5088017.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1260'); */
-    background-color: #121214;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    color: var(--first-color-dark);
   }
 
-  .user_card {
-    height: 400px;
-    width: 400px;
-    margin-top: auto;
-    margin-bottom: auto;
-    background: #2d2d2e;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
-
+  h1 {
+    margin: 0;
   }
 
-  .brand_logo_container {
-    position: absolute;
-    height: 170px;
-    width: 170px;
-    top: -75px;
-    border-radius: 50%;
-    background: #8257e5;
-    padding: 10px;
-    text-align: center;
-  }
-
-  .brand_logo {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    border: 4px solid black;
-  }
-
-  .form_container {
-    margin-top: 100px;
-  }
-
-  .login_btn {
-    width: 100%;
-    background: #8257e5 !important;
-    color: white !important;
-  }
-
-  .login_btn:focus {
-    box-shadow: none !important;
-    outline: 0px !important;
-  }
-
-  .login_container {
-    padding: 0 2rem;
-  }
-
-  .input-group-text {
-    background: #8257e5 !important;
-    color: white !important;
-    border: 0 !important;
-    border-radius: 0.25rem 0 0 0.25rem !important;
-  }
-
-  .input_user,
-  .input_pass:focus {
-    box-shadow: none !important;
-    outline: 0px !important;
-  }
-
-  .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #c0392b !important;
-  }
-
-  .links span,
   a {
-    color: white;
+    text-decoration: none;
   }
 
-  .links a {
-    color: white;
-    font-weight: bold;
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 
-  .borderSpan {
-    display: flex;
-    justify-content: center;
+  /*===== LOGIN =====*/
+  .login {
+    display: grid;
+    grid-template-columns: 100%;
+    height: 100vh;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .login__content {
+    display: grid;
+  }
+
+  .login__img {
+    justify-self: center;
+  }
+
+  .login__img img {
+    width: 310px;
+    margin-top: 1.5rem;
+  }
+
+  .login__forms {
+    position: relative;
+    height: 368px;
+  }
+
+  .login__registre,
+  .login__create {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    background-color: var(--first-color-lighten);
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(35, 0, 77, .2);
+    animation-duration: .4s;
+    animation-name: animate-login;
+  }
+
+  @keyframes animate-login {
+    0% {
+      transform: scale(1, 1);
+    }
+
+    50% {
+      transform: scale(1.1, 1.1);
+    }
+
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+  .login__title {
+    font-size: var(--h1-font-size);
+    margin-bottom: 2rem;
+  }
+
+  .login__box {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: .5rem;
+    padding: 1.125rem 1rem;
+    background-color: #FFF;
+    margin-top: 1rem;
+    border-radius: .5rem;
+  }
+
+  .login__icon {
+    font-size: 1.5rem;
+    color: var(--first-color);
+  }
+
+  .login__input {
+    border: none;
+    outline: none;
+    font-size: var(--normal-font-size);
+    font-weight: 700;
+    color: var(--first-color-dark);
+  }
+
+  .login__input::placeholder {
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+    color: var(--first-color-light);
+  }
+
+  .login__forgot {
+    display: block;
+    width: max-content;
+    margin-left: auto;
+    margin-top: .5rem;
+    font-size: var(--small-font-size);
+    font-weight: 600;
+    color: var(--first-color-light);
+  }
+
+  .login__button {
+    display: block;
+    padding: 1rem;
+    margin: 2rem 0;
+    background-color: var(--first-color);
+    color: #FFF;
+    font-weight: 600;
+    text-align: center;
+    border-radius: .5rem;
+    transition: .3s;
+  }
+
+  .login__button:hover {
+    background-color: var(--first-color-dark);
+  }
+
+  .login__account,
+  .login__signin,
+  .login__signup {
+    font-weight: 600;
+    font-size: var(--small-font-size);
+  }
+
+  .login__account {
+    color: var(--first-color-dark);
+  }
+
+  .login__signin,
+  .login__signup {
+    color: var(--first-color);
+    cursor: pointer;
+  }
+
+  .login__social {
     margin-top: 2rem;
-    height: 2px;
-    width: 80%;
-    background-color: #424244;
   }
 
-  .colunas {
-    margin-top: 250px;
+  .login__social-icon {
+    font-size: 1.5rem;
+    color: var(--first-color-dark);
+    margin: 0 1.5rem;
   }
 
-  .colunas h1 {
-    color: white;
-    font-size: 54px;
-    font-weight: bold;
+  /*Show login*/
+  .block {
+    display: block;
+  }
+
+  /*Hidden login*/
+  .none {
+    display: none;
+  }
+
+  /* ===== MEDIA QUERIES =====*/
+  @media screen and (min-width: 576px) {
+    .login__forms {
+      width: 348px;
+      justify-self: center;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .login {
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .login__content {
+      grid-template-columns: repeat(2, max-content);
+      justify-content: center;
+      align-items: center;
+      margin-left: 10rem;
+    }
+
+    .login__img {
+      display: flex;
+      width: 600px;
+      height: 588px;
+      background-color: var(--first-color-lighten);
+      border-radius: 1rem;
+      padding-left: 1rem;
+    }
+
+    .login__img img {
+      width: 390px;
+      margin-top: 0;
+    }
+
+    .login__registre,
+    .login__create {
+      left: -11rem;
+    }
+
+    .login__registre {
+      bottom: -2rem;
+    }
+
+    .login__create {
+      bottom: -5.5rem;
+    }
   }
 </style>
 
 <body>
 
-  <div class="container h-100">
+  <div class="login">
+    <div class="login__content">
+      <div class="login__img">
+        <img
+          src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/secure_login_pdn4.svg"
+          alt="">
+      </div>
 
+      <div class="login__forms">
+        <form action="" class="login__registre" id="login-in">
+          <h1 class="login__title">Login</h1>
 
-    <div class="row">
-      <div class="col-md-6 col-sm-12 colunas">
-        <img src="http://owltech.net.br/images/LogoPrincipal.png" alt="" width="200px" class="mb-5">
-        <h1 class="mt-5">Faça seu login <br>
-          na plataforma</h1>
-      </div><!-- FECHA COLUNA ESQUERDA -->
-      <div class="col-md-6 col-sm-12 colunas">
-        <div class="d-flex justify-content-center h-100">
-          <!-- Login Card -->
-          <div class="user_card loginCard">
-            <div class="d-flex justify-content-center">
-              <div class="brand_logo_container">
-                <img src="https://image.flaticon.com/icons/png/512/1969/1969487.png" class="brand_logo" alt="Logo">
-              </div>
-            </div>
-            <div class="d-flex justify-content-center form_container">
-              <form id="login-form">
-                <div class="input-group mb-3">
-                  <div class="input-group-append">
-                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                  </div>
-                  <input id="userRegister" type="text" name="" class="form-control input_user" value=""
-                    placeholder="usuário" required>
-                </div>
-                <div class="input-group mb-2">
-                  <div class="input-group-append">
-                    <span class="input-group-text"><i class="fas fa-key"></i></span>
-                  </div>
-                  <input id="passwordRegister" type="password" name="" class="form-control input_pass" value=""
-                    placeholder="senha" required>
-                </div>
-                <div class="d-flex justify-content-center mt-3 login_container">
-                  <button id="login_btn" type="button" name="button" class="btn login_btn">Login</button>
-                </div>
-              </form>
-            </div>
-
-            <div class="d-flex justify-content-center">
-              <span class="borderSpan"></span>
-            </div>
-
-            <div class="mt-4">
-              <div class="d-flex justify-content-center links">
-                <span>Não tem uma conta?</span> <a href="#" class="ml-2 showRegister">Registre-se</a>
-              </div>
-            </div>
+          <div class="login__box">
+            <i class='bx bx-user login__icon'></i>
+            <input id="userRegister" type="text" placeholder="Usuário" class="login__input">
           </div>
-          <!-- Register Card -->
-          <div class="user_card registerCard">
-            <div class="d-flex justify-content-center">
-              <div class="brand_logo_container">
-                <img src="https://image.flaticon.com/icons/png/512/1969/1969487.png" class="brand_logo" alt="Logo">
-              </div>
-            </div>
-            <div class="d-flex justify-content-center form_container">
-              <form id="signup-form">
-                <div class="input-group mb-3">
-                  <div class="input-group-append">
-                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                  </div>
-                  <input id="userLogin" type="text" name="" class="form-control input_user" value=""
-                    placeholder="Usuário" required>
-                </div>
-                <div class="input-group mb-2">
-                  <div class="input-group-append">
-                    <span class="input-group-text"><i class="fas fa-key"></i></span>
-                  </div>
-                  <input id="passwordLogin" type="password" name="" class="form-control input_pass" value=""
-                    placeholder="Senha" required>
-                </div>
-                <div class="input-group my-3">
-                  <div class="input-group-append">
-                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                  </div>
-                  <input id="email" type="email" name="" class="form-control input_user" value="" placeholder="Email"
-                    required>
-                </div>
-                <div class="d-flex justify-content-center mt-3 login_container">
-                  <button id="signup_btn" type="button" name="button" class="btn login_btn">Registrar-se</button>
-                </div>
-              </form>
-            </div>
 
-            <div class="mt-4">
-              <div class="d-flex justify-content-center links">
-                <a href="#" class="ml-2 showLogin">Fazer Login</a>
-              </div>
-            </div>
-          </div><!-- Close Register Card -->
-        </div>
-      </div><!-- FECHA COLUNA DIREITA -->
-    </div><!-- FECHA ROW -->
+          <div class="login__box">
+            <i class='bx bx-lock-alt login__icon'></i>
+            <input id="passwordRegister" type="password" placeholder="Senha" class="login__input">
+          </div>
+
+          <a id="login_btn" href="#" class="login__button">Registrar-se</a>
+
+          <div>
+            <span class="login__account">Não tem uma conta?</span>
+            <span class="login__signin" id="sign-up">Registrar-se</span>
+          </div>
+        </form>
+
+        <form action="" class="login__create none" id="login-up">
+          <h1 class="login__title">Criar Conta</h1>
+
+          <div class="login__box">
+            <i class='bx bx-user login__icon'></i>
+            <input id="userLogin" type="text" placeholder="Usuário" class="login__input">
+          </div>
+
+          <div class="login__box">
+            <i class='bx bx-at login__icon'></i>
+            <input id="email" type="text" placeholder="Email" class="login__input">
+          </div>
+
+          <div class="login__box">
+            <i class='bx bx-lock-alt login__icon'></i>
+            <input id="passwordLogin" type="password" placeholder="Senha" class="login__input">
+          </div>
+
+          <a id="signup_btn" href="#" class="login__button">Registrar-se</a>
+
+          <div>
+            <span class="login__account">Já tem uma conta ?</span>
+            <span class="login__signup" id="sign-in">Logar-se</span>
+          </div>
+
+          <div class="login__social">
+            <a href="#" class="login__social-icon"><i class='bx bxl-facebook'></i></a>
+            <a href="#" class="login__social-icon"><i class='bx bxl-twitter'></i></a>
+            <a href="#" class="login__social-icon"><i class='bx bxl-google'></i></a>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 
   <script>
-    const loginCard = document.querySelector('.loginCard')
-    const registerCard = document.querySelector('.registerCard')
+    /*===== LOGIN SHOW and HIDDEN =====*/
+    const signUp = document.getElementById('sign-up'),
+      signIn = document.getElementById('sign-in'),
+      loginIn = document.getElementById('login-in'),
+      loginUp = document.getElementById('login-up')
 
-    registerCard.style.display = 'none'
 
-    document.querySelector('.showLogin').addEventListener('click', showLogin);
-    document.querySelector('.showRegister').addEventListener('click', showRegister);
+    signUp.addEventListener('click', () => {
+      // Remove classes first if they exist
+      loginIn.classList.remove('block')
+      loginUp.classList.remove('none')
 
-    function showLogin() {
-      loginCard.style.display = 'block'
-      registerCard.style.display = 'none'
-    }
+      // Add classes
+      loginIn.classList.toggle('none')
+      loginUp.classList.toggle('block')
+    })
 
-    function showRegister() {
-      loginCard.style.display = 'none'
-      registerCard.style.display = 'block'
-    }
+    signIn.addEventListener('click', () => {
+      // Remove classes first if they exist
+      loginIn.classList.remove('none')
+      loginUp.classList.remove('block')
+
+      // Add classes
+      loginIn.classList.toggle('block')
+      loginUp.classList.toggle('none')
+    })
+
 
 
     $(document).ready(function () {
