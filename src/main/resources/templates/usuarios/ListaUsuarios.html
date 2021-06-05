@@ -9,65 +9,15 @@
 	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet" />
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
 		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<link rel="stylesheet" href="styles/global.css">
+	<link rel="stylesheet" href="styles/ListaUsuarios.css">
 </head>
-
-<style>
-	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
-	html {
-		overflow-x: hidden;
-	}
-
-	body {
-		font-family: 'Poppins', sans-serif;
-	}
-
-	a {
-		text-decoration: none;
-	}
-
-	p {
-		color: white !important;
-	}
-
-	.presentation {
-		background-color: #8257e5;
-	}
-
-	.presentation .textPresentation {
-		padding: 10% 25%;
-	}
-
-	.presentation .textPresentation p {
-		margin-top: 2rem;
-		font-size: 24px;
-	}
-
-	.presentation .textPresentation h1 {
-		font-weight: bold;
-	}
-
-	.cadastro {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.btn-primary {
-		background-color: #8257e5;
-		border-color: #8257e5;
-	}
-
-	.btn-primary:hover {
-		background-color: #6c63ff;
-		border-color: #6c63ff;
-	}
-</style>
 
 <body>
 
 	<nav class="navbar navbar-light bg-dark px-5">
 		<a class="navbar-brand" href="/usuarios">
-			<img src="http://owltech.net.br/images/LogoPrincipal.png" width="150" class="d-inline-block align-top" alt="">
+			<img src="images/logo.png" width="150" class="d-inline-block align-top" alt="">
 		</a>
 		<a href="/">
 			<p>Sign out</p>
@@ -135,6 +85,7 @@
 					</form>
 				</div>
 			</div>
+
 			<div class="col-md-8 col-sm-12">
 				<table class="table table-striped table-hover table-bordered">
 					<thead>
@@ -170,6 +121,13 @@
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
+	<script>
+		var alerted = sessionStorage.getItem('alerted') || '';
+		if (alerted != 'yes') {
+			alert("A conta que você está usando é uma conta de administrador.");
+			sessionStorage.setItem('alerted', 'yes');
+		}
+	</script>
 </body>
 
 </html>
