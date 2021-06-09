@@ -41,6 +41,14 @@ public class UsuariosController {
 		return view;
 	}
 
+	@GetMapping("/faleConosco")
+	public ModelAndView faleConosco() {
+
+		ModelAndView view = new ModelAndView("/usuarios/faleConosco");
+
+		return view;
+	}
+
 	@GetMapping("/usuarios")
 	public ModelAndView listar() {
 
@@ -86,14 +94,6 @@ public class UsuariosController {
 		service.excluirUsuarios(id);
 
 		return "redirect:/usuarios";
-	}
-
-	@GetMapping("/faleConosco")
-	public ModelAndView faleConosco() {
-
-		ModelAndView view = new ModelAndView("/usuarios/faleConosco");
-
-		return view;
 	}
 
 }
