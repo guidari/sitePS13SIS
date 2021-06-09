@@ -1,133 +1,208 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Cadastro Usuarios</title>
+    <link
+      th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+      rel="stylesheet"
+    />
+    <link
+      th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/ListaUsuarios.css" />
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-	<title>Cadastro Usuarios</title>
-	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
-	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet" />
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-	<link rel="stylesheet" href="styles/global.css">
-	<link rel="stylesheet" href="styles/ListaUsuarios.css">
-</head>
+  <body>
+    <nav class="navbar navbar-light bg-dark px-5">
+      <a class="navbar-brand" href="/usuarios">
+        <img
+          src="images/logo.png"
+          width="150"
+          class="d-inline-block align-top"
+          alt=""
+        />
+      </a>
+      <div class="d-flex">
+        <a href="/faleConosco" class="px-3" title="Fale conosco">
+          <!-- <p>Fale Conosco</p> -->
+          <i class="far fa-phone fa-2x"></i>
+        </a>
+        <a href="/" class="px-3" title="Sair">
+          <!-- <p>Sign out</p> -->
+          <i class="far fa-sign-out-alt fa-2x"></i>
+        </a>
+      </div>
+    </nav>
 
-<body>
+    <div class="row">
+      <div class="col-md-6 col-sm-12 presentation">
+        <div class="textPresentation">
+          <h1>Networking e coach de carreira ficou fácil!</h1>
+          <p>
+            Com a nossa plataforma você consegue entrar em contato com
+            profissionais experientes no mercado de trabalho. Na nossa
+            plataforma o professor irá apresentar um plano de treinamento com um
+            conteúdo alinhado com o que o mercado pede.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 p-5">
+        <img
+          src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/online_connection_6778.svg"
+          alt=""
+          width="700px"
+        />
+      </div>
+    </div>
 
-	<nav class="navbar navbar-light bg-dark px-5">
-		<a class="navbar-brand" href="/usuarios">
-			<img src="images/logo.png" width="150" class="d-inline-block align-top" alt="">
-		</a>
-		<a href="/">
-			<p>Sign out</p>
-		</a>
-	</nav>
+    <div class="container my-5">
+      <div class="jumbotron mb-5">
+        <h3 class="display-4">Professores cadastrados em nossa plataforma</h3>
+      </div>
 
-	<div class="row">
-		<div class="col-md-6 col-sm-12 presentation">
-			<div class="textPresentation">
-				<h1>Networking e coach de carreira ficou fácil!</h1>
-				<p>Com a nossa plataforma você consegue entrar em contato com profissionais experientes no mercado de trabalho.
-					Na nossa plataforma o professor irá apresentar um plano de treinamento com um conteúdo alinhado com o que o
-					mercado pede.</p>
-			</div>
-		</div>
-		<div class="col-md-6 col-sm-12 p-5">
-			<img
-				src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/online_connection_6778.svg"
-				alt="" width="700px">
-		</div>
-	</div>
+      <div class="row">
+        <div class="col-md-4 col-sm-12 cadastro">
+          <div class="card">
+            <form
+              class="card-body"
+              method="POST"
+              th:object="${usuario}"
+              th:action="@{/usuarios}"
+            >
+              <div class="row">
+                <div class="form-group mb-3">
+                  <label for="nome">Nome</label>
+                  <input
+                    id="nome"
+                    type="text"
+                    class="form-control mt-3"
+                    placeholder="Nome do usuario"
+                    name="nome"
+                    th:field="*{nome}"
+                  />
+                  <div th:errors="*{nome}" class="invalid-feedback"></div>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="imagem">Foto de perfil</label>
+                  <input
+                    id="imagem"
+                    type="text"
+                    class="form-control mt-3"
+                    placeholder="Insira uma URL de imagem"
+                    th:field="*{imagem}"
+                  />
+                </div>
+                <div class="form-group mb-3">
+                  <label for="celular">Celular</label>
+                  <input
+                    id="celular"
+                    type="text"
+                    class="form-control mt-3"
+                    placeholder="Celular do usuário"
+                    th:field="*{celular}"
+                  />
+                </div>
+                <div class="form-group mb-3">
+                  <label for="materia">Materia</label>
+                  <input
+                    id="materia"
+                    type="text"
+                    class="form-control mt-3"
+                    placeholder="Matéria"
+                    th:field="*{materia}"
+                  />
+                </div>
+                <div class="form-group mb-3">
+                  <label for="custo">Custo por hora de aula</label>
+                  <input
+                    id="custo"
+                    type="text"
+                    class="form-control mt-3"
+                    placeholder="Custo por hora de aula"
+                    th:field="*{custo}"
+                  />
+                </div>
+                <div class="form-group mb-3">
+                  <label for="biografia">Biografia</label>
+                  <textarea
+                    id="biografia"
+                    type="text"
+                    class="form-control mt-3"
+                    placeholder="Bigrafia"
+                    th:field="*{biografia}"
+                  ></textarea>
+                </div>
+              </div>
+              <button
+                id="cadastrarProfissional"
+                type="submit"
+                class="btn btn-primary"
+              >
+                Cadastrar Profissional
+              </button>
+            </form>
+          </div>
+        </div>
 
-	<div class="container my-5">
-		<div class="jumbotron mb-5">
-			<h3 class="display-4">Professores cadastrados em nossa plataforma</h3>
-		</div>
+        <div class="col-md-8 col-sm-12">
+          <table class="table table-striped table-hover table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Preço/hora</th>
+                <th scope="col">Matéria</th>
+                <th width="150px" class="text-center" scope="col">Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="usuario : ${usuarios}">
+                <th th:text="${usuario.id}" scope="row"></th>
+                <td th:text="${usuario.nome}"></td>
+                <td th:text="${usuario.custo}"></td>
+                <td th:text="${usuario.materia}"></td>
+                <td class="text-center">
+                  <a
+                    th:href="@{/infoUsuario/{id}(id = ${usuario.id})}"
+                    class="btn btn-warning"
+                    ><i class="fas fa-user"></i
+                  ></a>
+                  <a
+                    th:href="@{/usuarios/{id}(id = ${usuario.id})}"
+                    class="btn btn-primary"
+                    ><i class="fas fa-pen"></i
+                  ></a>
+                  <a
+                    th:href="@{/usuarios/excluir/{id}(id = ${usuario.id})}"
+                    class="btn btn btn-danger"
+                    ><i class="fas fa-trash"></i
+                  ></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
-		<div class="row">
-			<div class="col-md-4 col-sm-12 cadastro">
-				<div class="card">
-					<form class="card-body" method="POST" th:object="${usuario}" th:action="@{/usuarios}">
-						<div class="row">
-							<div class="form-group mb-3">
-								<label for="nome">Nome</label>
-								<input id="nome" type="text" class="form-control mt-3" placeholder="Nome do usuario" name="nome"
-									th:field="*{nome}">
-								<div th:errors="*{nome}" class="invalid-feedback"></div>
-							</div>
-							<div class="form-group mb-3">
-								<label for="imagem">Foto de perfil</label>
-								<input id="imagem" type="text" class="form-control mt-3" placeholder="Insira uma URL de imagem"
-									th:field="*{imagem}">
-							</div>
-							<div class="form-group mb-3">
-								<label for="celular">Celular</label>
-								<input id="celular" type="text" class="form-control mt-3" placeholder="Celular do usuário"
-									th:field="*{celular}">
-							</div>
-							<div class="form-group mb-3">
-								<label for="materia">Materia</label>
-								<input id="materia" type="text" class="form-control mt-3" placeholder="Matéria" th:field="*{materia}">
-							</div>
-							<div class="form-group mb-3">
-								<label for="custo">Custo por hora de aula</label>
-								<input id="custo" type="text" class="form-control mt-3" placeholder="Custo por hora de aula"
-									th:field="*{custo}">
-							</div>
-							<div class="form-group mb-3">
-								<label for="biografia">Biografia</label>
-								<textarea id="biografia" type="text" class="form-control mt-3" placeholder="Bigrafia"
-									th:field="*{biografia}"></textarea>
-							</div>
-						</div>
-						<button id="cadastrarProfissional" type="submit" class="btn btn-primary">Cadastrar Profissional</button>
-					</form>
-				</div>
-			</div>
-
-			<div class="col-md-8 col-sm-12">
-				<table class="table table-striped table-hover table-bordered">
-					<thead>
-						<tr>
-							<th scope="col">#</th>
-							<th scope="col">Nome</th>
-							<th scope="col">Preço/hora</th>
-							<th scope="col">Matéria</th>
-							<th width="150px" class="text-center" scope="col">Ação</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="usuario : ${usuarios}">
-							<th th:text="${usuario.id}" scope="row"></th>
-							<td th:text="${usuario.nome}"></td>
-							<td th:text="${usuario.custo}"></td>
-							<td th:text="${usuario.materia}"></td>
-							<td class="text-center">
-								<a th:href="@{/infoUsuario/{id}(id = ${usuario.id})}" class="btn btn-warning"><i
-										class="fas fa-user"></i></a>
-								<a th:href="@{/usuarios/{id}(id = ${usuario.id})}" class="btn btn-primary"><i
-										class="fas fa-pen"></i></a>
-								<a th:href="@{/usuarios/excluir/{id}(id = ${usuario.id})}" class="btn btn btn-danger"><i
-										class="fas fa-trash"></i></a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-
-	</div>
-	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-
-	<script>
-		var alerted = sessionStorage.getItem('alerted') || '';
-		if (alerted != 'yes') {
-			alert("A conta que você está usando é uma conta de administrador.");
-			sessionStorage.setItem('alerted', 'yes');
-		}
-	</script>
-</body>
-
+    <script>
+      var alerted = sessionStorage.getItem('alerted') || '';
+      if (alerted != 'yes') {
+        alert('A conta que você está usando é uma conta de administrador.');
+        sessionStorage.setItem('alerted', 'yes');
+      }
+    </script>
+  </body>
 </html>

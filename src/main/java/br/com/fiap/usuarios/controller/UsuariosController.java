@@ -88,4 +88,12 @@ public class UsuariosController {
 		return "redirect:/usuarios";
 	}
 
+	@GetMapping("/faleConosco")
+	public ModelAndView faleConosco() {
+
+		ModelAndView view = new ModelAndView("/usuarios/faleConosco");
+
+		return view;
+	}
+
 }

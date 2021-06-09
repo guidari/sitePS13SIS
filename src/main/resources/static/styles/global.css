@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 :root {
-  --bs-primary:#6c63ff;
+  --bs-primary: #6c63ff;
 }
 
-html
-body {
+html body {
   margin: 0;
   padding: 0;
   margin: 0;
@@ -24,4 +23,8 @@ body {
 
 a {
   text-decoration: none;
+}
+
+.far {
+  color: #8257e5;
 }

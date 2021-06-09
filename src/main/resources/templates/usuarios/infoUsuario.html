@@ -1,146 +1,193 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Informações do professor</title>
+    <link
+      th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/infoUsuario.css" />
+  </head>
+  <style>
+    body {
+      margin: 0;
+      font-family: var(--bs-font-sans-serif);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #212529;
+      background-color: #f0f0f7;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-	<title>Informações do professor</title>
-	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
-	<link rel="stylesheet" href="styles/global.css">
-	<link rel="stylesheet" href="styles/infoUsuario.css">
-</head>
-<style>
-	body {
-		margin: 0;
-		font-family: var(--bs-font-sans-serif);
-		font-size: 1rem;
-		font-weight: 400;
-		line-height: 1.5;
-		color: #212529;
-		background-color: #f0f0f7;
-		-webkit-text-size-adjust: 100%;
-		-webkit-tap-highlight-color: transparent;
-	}
+    a {
+      text-decoration: none;
+    }
 
-	a {
-		text-decoration: none;
-	}
+    main {
+      padding: 3.2rem 0;
+      max-width: 740px;
+      margin: 0 auto;
+    }
 
-	main {
-		padding: 3.2rem 0;
-		max-width: 740px;
-		margin: 0 auto;
-	}
+    .teacher-item {
+      background: #fff;
+      border: 1px solid #e6e6f0;
+      border-radius: 0.8rem;
+      margin-top: 2.4rem;
+      overflow: hidden;
+    }
 
-	.teacher-item {
-		background: #fff;
-		border: 1px solid #e6e6f0;
-		border-radius: .8rem;
-		margin-top: 2.4rem;
-		overflow: hidden;
-	}
+    .teacher-item header {
+      padding: 3.2rem 2rem;
+      display: flex;
+      align-items: center;
+    }
 
-	.teacher-item header {
-		padding: 3.2rem 2rem;
-		display: flex;
-		align-items: center;
-	}
+    .teacher-item header div {
+      margin-left: 2.4rem;
+    }
 
-	.teacher-item header div {
-		margin-left: 2.4rem;
-	}
+    .teacher-item header img {
+      width: 8rem;
+      height: 8rem;
+      border-radius: 50%;
+    }
 
-	.teacher-item header img {
-		width: 8rem;
-		height: 8rem;
-		border-radius: 50%;
-	}
+    .teacher-item > p {
+      padding: 1rem 2rem;
+      font-size: 1.6rem;
+      line-height: 2.8rem;
+    }
 
-	.teacher-item>p {
-		padding: 1rem 2rem;
-		font-size: 1.6rem;
-		line-height: 2.8rem;
-	}
+    .teacher-item header,
+    .teacher-item footer {
+      padding: 3.2rem;
+    }
 
-	.teacher-item header,
-	.teacher-item footer {
-		padding: 3.2rem;
-	}
+    .teacher-item footer {
+      padding: 3.2rem 2rem;
+      background: #fafafc;
+      border-top: 1px solid #e6e6f0;
+      margin-top: 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
+    .teacher-item footer strong {
+      color: #8257e5;
+    }
 
-	.teacher-item footer {
-		padding: 3.2rem 2rem;
-		background: #fafafc;
-		border-top: 1px solid #e6e6f0;
-		margin-top: 3.2rem;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
+    .teacher-item footer a {
+      width: 24.5rem;
+      font-size: 1.6rem;
+      justify-content: center;
+    }
 
-	.teacher-item footer strong {
-		color: #8257e5;
-	}
+    .teacher-item footer a {
+      width: 20rem;
+      height: 5.6rem;
+      background: #04d361;
+      color: #fff;
+      border: 0;
+      border-radius: 0.8rem;
+      cursor: pointer;
+      font: 700 1.4rem Poppins;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+  </style>
 
-	.teacher-item footer a {
-		width: 24.5rem;
-		font-size: 1.6rem;
-		justify-content: center;
-	}
+  <body>
+    <nav class="navbar navbar-light bg-dark px-5">
+      <a class="navbar-brand" href="/usuarios">
+        <img
+          src="images/logo.png"
+          width="150"
+          class="d-inline-block align-top"
+          alt=""
+        />
+      </a>
+      <div class="d-flex">
+        <a href="/faleConosco" class="px-3" title="Fale conosco">
+          <!-- <p>Fale Conosco</p> -->
+          <i class="far fa-phone fa-2x"></i>
+        </a>
+        <a href="/" class="px-3" title="Sair">
+          <!-- <p>Sign out</p> -->
+          <i class="far fa-sign-out-alt fa-2x"></i>
+        </a>
+      </div>
+    </nav>
 
-	.teacher-item footer a {
-		width: 20rem;
-		height: 5.6rem;
-		background: #04d361;
-		color: #fff;
-		border: 0;
-		border-radius: .8rem;
-		cursor: pointer;
-		font: 700 1.4rem Poppins;
-		font-size: 1.4rem;
-		display: flex;
-		align-items: center;
-		justify-content: space-evenly;
-		transition: .2s;
-		text-decoration: none;
-	}
-</style>
+    <main>
+      <article class="teacher-item"></article>
+    </main>
 
-<body>
-	<nav class="navbar navbar-light bg-dark px-5">
-		<a class="navbar-brand" href="/usuarios">
-			<img src="images/logo.png" width="150" class="d-inline-block align-top" alt="">
-		</a>
-		<a href="/">
-			<p>Sign out</p>
-		</a>
-	</nav>
+    <div method="POST" th:object="${usuario}" th:action="@{/usuarios}">
+      <input
+        id="nome"
+        type="hidden"
+        class="form-control mt-3"
+        placeholder="Nome do usuario"
+        th:field="*{nome}"
+      />
+      <input
+        id="celular"
+        type="hidden"
+        class="form-control mt-3"
+        placeholder="Celular do usuario"
+        th:field="*{celular}"
+      />
+      <input
+        id="materia"
+        type="hidden"
+        class="form-control mt-3"
+        placeholder="Matéria"
+        th:field="*{materia}"
+      />
+      <input
+        id="imagem"
+        type="hidden"
+        class="form-control mt-3"
+        placeholder="Foto de perfil"
+        th:field="*{imagem}"
+      />
+      <input
+        id="custo"
+        type="hidden"
+        class="form-control mt-3"
+        placeholder="Custo da aula"
+        th:field="*{custo}"
+      />
+      <input
+        id="biografia"
+        type="hidden"
+        class="form-control mt-3"
+        placeholder="Sua Biografia"
+        th:field="*{biografia}"
+      />
+    </div>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script>
+      const nome = document.querySelector('#nome').value;
+      const celular = document.querySelector('#celular').value;
+      const materia = document.querySelector('#materia').value;
+      const imagem = document.querySelector('#imagem').value;
+      const custo = document.querySelector('#custo').value;
+      const biografia = document.querySelector('#biografia').value;
 
-	<main>
-		<article class="teacher-item">
-
-		</article>
-	</main>
-
-	<div method="POST" th:object="${usuario}" th:action="@{/usuarios}">
-		<input id="nome" type="hidden" class="form-control mt-3" placeholder="Nome do usuario" th:field="*{nome}">
-		<input id="celular" type="hidden" class="form-control mt-3" placeholder="Celular do usuario" th:field="*{celular}">
-		<input id="materia" type="hidden" class="form-control mt-3" placeholder="Matéria" th:field="*{materia}">
-		<input id="imagem" type="hidden" class="form-control mt-3" placeholder="Foto de perfil" th:field="*{imagem}">
-		<input id="custo" type="hidden" class="form-control mt-3" placeholder="Custo da aula" th:field="*{custo}">
-		<input id="biografia" type="hidden" class="form-control mt-3" placeholder="Sua Biografia" th:field="*{biografia}">
-	</div>
-	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-	<script>
-		const nome = document.querySelector('#nome').value;
-		const celular = document.querySelector('#celular').value;
-		const materia = document.querySelector('#materia').value;
-		const imagem = document.querySelector('#imagem').value;
-		const custo = document.querySelector('#custo').value;
-		const biografia = document.querySelector('#biografia').value;
-
-		let articleContent = `<header>
+      let articleContent = `<header>
 				<img src="${imagem}"
 					alt="Foto de perfil">
 				<div>
@@ -155,9 +202,7 @@
 						src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwLjAwMjUgMEg5Ljk5NzVDNC40ODM3NSAwIDAgNC40ODUgMCAxMEMwIDEyLjE4NzUgMC43MDUgMTQuMjE1IDEuOTAzNzUgMTUuODYxMkwwLjY1NzUgMTkuNTc2M0w0LjUwMTI1IDE4LjM0NzVDNi4wODI1IDE5LjM5NSA3Ljk2ODc1IDIwIDEwLjAwMjUgMjBDMTUuNTE2MiAyMCAyMCAxNS41MTM4IDIwIDEwQzIwIDQuNDg2MjUgMTUuNTE2MiAwIDEwLjAwMjUgMFoiIGZpbGw9IiM0Q0FGNTAiLz4KPHBhdGggZD0iTTE1LjgyMTIgMTQuMTIxMkMxNS41Nzk5IDE0LjgwMjUgMTQuNjIyNCAxNS4zNjc1IDEzLjg1ODcgMTUuNTMyNUMxMy4zMzYyIDE1LjY0MzcgMTIuNjUzNyAxNS43MzI1IDEwLjM1NjIgMTQuNzhDNy40MTc0NCAxMy41NjI1IDUuNTI0OTQgMTAuNTc2MiA1LjM3NzQ0IDEwLjM4MjVDNS4yMzYxOSAxMC4xODg3IDQuMTg5OTQgOC44MDEyMyA0LjE4OTk0IDcuMzY2MjNDNC4xODk5NCA1LjkzMTIzIDQuOTE4NjkgNS4yMzI0OCA1LjIxMjQ0IDQuOTMyNDhDNS40NTM2OSA0LjY4NjIzIDUuODUyNDQgNC41NzM3MyA2LjIzNDk0IDQuNTczNzNDNi4zNTg2OSA0LjU3MzczIDYuNDY5OTQgNC41Nzk5OCA2LjU2OTk0IDQuNTg0OThDNi44NjM2OSA0LjU5NzQ4IDcuMDExMTkgNC42MTQ5OCA3LjIwNDk0IDUuMDc4NzNDNy40NDYxOSA1LjY1OTk4IDguMDMzNjkgNy4wOTQ5OCA4LjEwMzY5IDcuMjQyNDhDOC4xNzQ5NCA3LjM4OTk4IDguMjQ2MTkgNy41ODk5OCA4LjE0NjE5IDcuNzgzNzNDOC4wNTI0NCA3Ljk4MzczIDcuOTY5OTQgOC4wNzI0OCA3LjgyMjQ0IDguMjQyNDhDNy42NzQ5NCA4LjQxMjQ4IDcuNTM0OTQgOC41NDI0OCA3LjM4NzQ0IDguNzI0OThDNy4yNTI0NCA4Ljg4MzczIDcuMDk5OTQgOS4wNTM3MyA3LjI2OTk0IDkuMzQ3NDhDNy40Mzk5NCA5LjYzNDk4IDguMDI3NDQgMTAuNTkzNyA4Ljg5MjQ0IDExLjM2MzdDMTAuMDA4NyAxMi4zNTc1IDEwLjkxMzcgMTIuNjc1IDExLjIzNzQgMTIuODFDMTEuNDc4NyAxMi45MSAxMS43NjYyIDEyLjg4NjIgMTEuOTQyNCAxMi42OTg3QzEyLjE2NjIgMTIuNDU3NSAxMi40NDI0IDEyLjA1NzUgMTIuNzIzNyAxMS42NjM3QzEyLjkyMzcgMTEuMzgxMiAxMy4xNzYyIDExLjM0NjIgMTMuNDQxMiAxMS40NDYyQzEzLjcxMTIgMTEuNTQgMTUuMTM5OSAxMi4yNDYyIDE1LjQzMzcgMTIuMzkyNUMxNS43Mjc0IDEyLjU0IDE1LjkyMTIgMTIuNjEgMTUuOTkyNCAxMi43MzM3QzE2LjA2MjQgMTIuODU3NSAxNi4wNjI0IDEzLjQzODcgMTUuODIxMiAxNC4xMjEyWiIgZmlsbD0iI0ZBRkFGQSIvPgo8L3N2Zz4K"
 						alt="WhatsApp">Entrar em contato</a>
 			</footer>`;
-		document.querySelector(".teacher-item").innerHTML = articleContent;
-
-	</script>
-</body>
-
+      document.querySelector('.teacher-item').innerHTML = articleContent;
+    </script>
+  </body>
 </html>

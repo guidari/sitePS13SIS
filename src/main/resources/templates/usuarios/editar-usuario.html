@@ -1,85 +1,146 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar Informações</title>
+    <link
+      th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+      rel="stylesheet"
+    />
+    <link
+      th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+  </head>
+  <style>
+    .btn-primary {
+      background-color: #8257e5;
+      border-color: #8257e5;
+    }
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-	<title>Editar Informações</title>
-	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
-	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet" />
-	<link rel="stylesheet" href="styles/global.css">
-</head>
-<style>
-	.btn-primary {
-		background-color: #8257e5;
-		border-color: #8257e5;
-	}
+    .btn-primary:hover {
+      background-color: #6c63ff;
+      border-color: #6c63ff;
+    }
 
-	.btn-primary:hover {
-		background-color: #6c63ff;
-		border-color: #6c63ff;
-	}
+    a {
+      text-decoration: none;
+    }
+  </style>
 
-	a {
-		text-decoration: none;
-	}
-</style>
+  <body>
+    <nav class="navbar navbar-light bg-dark px-5">
+      <a class="navbar-brand" href="/usuarios">
+        <img
+          src="images/logo.png"
+          width="150"
+          class="d-inline-block align-top"
+          alt=""
+        />
+      </a>
+      <div class="d-flex">
+        <a href="/faleConosco" class="px-3" title="Fale conosco">
+          <!-- <p>Fale Conosco</p> -->
+          <i class="far fa-phone fa-2x"></i>
+        </a>
+        <a href="/" class="px-3" title="Sair">
+          <!-- <p>Sign out</p> -->
+          <i class="far fa-sign-out-alt fa-2x"></i>
+        </a>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-4">Editar Informações</h1>
+      </div>
+      <div class="card">
+        <form
+          class="card-body"
+          method="POST"
+          th:object="${usuario}"
+          th:action="@{/usuarios}"
+        >
+          <div class="row">
+            <div>
+              <input
+                type="hidden"
+                class="form-control mt-3"
+                placeholder="Nome do usuário"
+                th:field="*{id}"
+              />
+            </div>
 
-<body>
-	<nav class="navbar navbar-light bg-dark px-5">
-		<a class="navbar-brand" href="/usuarios">
-			<img src="images/logo.png" width="150" class="d-inline-block align-top" alt="">
-		</a>
-		<a href="/">
-			<p>Sign out</p>
-		</a>
-	</nav>
-	<div class="container">
-		<div class="jumbotron">
-			<h1 class="display-4">Editar Informações</h1>
-		</div>
-		<div class="card">
-			<form class="card-body" method="POST" th:object="${usuario}" th:action="@{/usuarios}">
-				<div class="row">
-					<div>
-						<input type="hidden" class="form-control mt-3" placeholder="Nome do usuário" th:field="*{id}">
-					</div>
-
-					<div class="form-group mb-3 col-sm">
-						<label for="nome">Nome</label>
-						<input type="text" class="form-control mt-3" placeholder="Nome do usuário" th:field="*{nome}">
-					</div>
-					<div class="form-group mb-3 col-sm">
-						<label for="celular">Celular</label>
-						<input type="text" class="form-control mt-3" placeholder="Celular do usuário" th:field="*{celular}">
-					</div>
-					<div class="form-group mb-3 col-sm">
-						<label for="materia">Matéria</label>
-						<input type="text" class="form-control mt-3" placeholder="Matéria" th:field="*{materia}">
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group mb-3 col-sm">
-						<label for="imagem">Imagem</label>
-						<input type="text" class="form-control mt-3" placeholder="Foto de perfil" th:field="*{imagem}">
-					</div>
-					<div class="form-group mb-3 col-sm">
-						<label for="custo">Preço/hora</label>
-						<input type="text" class="form-control mt-3" placeholder="Preço/hora" th:field="*{custo}">
-					</div>
-					<div class="form-group mb-3 col-sm">
-						<label for="biografia">Biografia</label>
-						<textarea type="text" class="form-control mt-3" placeholder="Sua Biografia"
-							th:field="*{biografia}"></textarea>
-					</div>
-				</div>
-				<button type="submit" class="btn btn-primary">Atualizar</button>
-				<button onclick='window.history.back();' type="submit" class="btn btn-primary">Voltar</button>
-			</form>
-		</div>
-	</div>
-	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-</body>
-
+            <div class="form-group mb-3 col-sm">
+              <label for="nome">Nome</label>
+              <input
+                type="text"
+                class="form-control mt-3"
+                placeholder="Nome do usuário"
+                th:field="*{nome}"
+              />
+            </div>
+            <div class="form-group mb-3 col-sm">
+              <label for="celular">Celular</label>
+              <input
+                type="text"
+                class="form-control mt-3"
+                placeholder="Celular do usuário"
+                th:field="*{celular}"
+              />
+            </div>
+            <div class="form-group mb-3 col-sm">
+              <label for="materia">Matéria</label>
+              <input
+                type="text"
+                class="form-control mt-3"
+                placeholder="Matéria"
+                th:field="*{materia}"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group mb-3 col-sm">
+              <label for="imagem">Imagem</label>
+              <input
+                type="text"
+                class="form-control mt-3"
+                placeholder="Foto de perfil"
+                th:field="*{imagem}"
+              />
+            </div>
+            <div class="form-group mb-3 col-sm">
+              <label for="custo">Preço/hora</label>
+              <input
+                type="text"
+                class="form-control mt-3"
+                placeholder="Preço/hora"
+                th:field="*{custo}"
+              />
+            </div>
+            <div class="form-group mb-3 col-sm">
+              <label for="biografia">Biografia</label>
+              <textarea
+                type="text"
+                class="form-control mt-3"
+                placeholder="Sua Biografia"
+                th:field="*{biografia}"
+              ></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Atualizar</button>
+          <button
+            onclick="window.history.back();"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Voltar
+          </button>
+        </form>
+      </div>
+    </div>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  </body>
 </html>
