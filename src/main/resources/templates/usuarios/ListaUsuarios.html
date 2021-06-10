@@ -240,7 +240,9 @@
             ></textarea>
           </div>
 
-          <button id="submitContact" class="btn btn-primary">Enviar</button>
+          <button onclick="submitContact()" class="btn btn-primary">
+            Enviar
+          </button>
         </div>
       </div>
     </div>
@@ -253,6 +255,10 @@
       if (alerted != 'yes') {
         alert('A conta que você está usando é uma conta de administrador.');
         sessionStorage.setItem('alerted', 'yes');
+      }
+
+      function submitContact() {
+        alert('Sua mensagem foi enviada');
       }
     </script>
   </body>
