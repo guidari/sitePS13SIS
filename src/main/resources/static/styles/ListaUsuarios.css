@@ -12,10 +12,6 @@ a {
   text-decoration: none;
 }
 
-p {
-  color: white !important;
-}
-
 .presentation {
   background-color: #8257e5;
   border-bottom-right-radius: 50%;
@@ -28,6 +24,7 @@ p {
 .presentation .textPresentation p {
   margin-top: 2rem;
   font-size: 24px;
+  color: white !important;
 }
 
 .presentation .textPresentation h1 {
