@@ -8,6 +8,12 @@
       th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="styles/global.css" />
     <link rel="stylesheet" href="styles/infoUsuario.css" />
   </head>
@@ -29,7 +35,6 @@
     }
 
     main {
-      padding: 3.2rem 0;
       max-width: 740px;
       margin: 0 auto;
     }
@@ -38,7 +43,6 @@
       background: #fff;
       border: 1px solid #e6e6f0;
       border-radius: 0.8rem;
-      margin-top: 2.4rem;
       overflow: hidden;
     }
 
@@ -105,13 +109,25 @@
       transition: 0.2s;
       text-decoration: none;
     }
+    .far {
+      color: #8257e5;
+    }
+    .btn-primary {
+      background-color: #8257e5;
+      border-color: #8257e5;
+    }
+
+    .btn-primary:hover {
+      background-color: #6c63ff;
+      border-color: #6c63ff;
+    }
   </style>
 
   <body>
     <nav class="navbar navbar-light bg-dark px-5">
       <a class="navbar-brand" href="/usuarios">
         <img
-          src="images/logo.png"
+          src="https://still-basin-07055.herokuapp.com/images/logo.png"
           width="150"
           class="d-inline-block align-top"
           alt=""
@@ -124,6 +140,15 @@
       </div>
     </nav>
 
+    <div class="container mt-5">
+      <button
+        onclick="window.history.back();"
+        type="submit"
+        class="btn btn-primary"
+      >
+        Voltar
+      </button>
+    </div>
     <main>
       <article class="teacher-item"></article>
     </main>
